@@ -117,8 +117,7 @@ def generate_stream(prompt: str, adapter_id: str = base_model_id) -> str:
 
     return completion
 
-secret_word = "CRAFT"
-
+"""
 past_guesses = [
     GuessWithFeedback(
         "CRANE", [
@@ -138,7 +137,6 @@ past_guesses = [
         ]),
 ]
 
-"""
 prompt = render_prompt(past_guesses)
 print(prompt)
 print("First Try")
