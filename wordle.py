@@ -41,8 +41,8 @@ Guess 3: BRISK -> Feedback: B(/) R(/) I(/) S(/) K(/)
 ### Response Format:
 Think through the problem and feedback step-by-step. Make sure to
 first add your step by step process thought within <think> </think>
-tags. Then, return your guess word in the following format:
-<guess> guessed-word </guess>.
+tags. Then, you MUST return your guess word in the following format:
+<guess>guessed-word</guess>.
 """
 
 class LetterFeedback(Enum):
@@ -87,7 +87,7 @@ def render_prompt(past_guesses: List[GuessWithFeedback]):
         },
         {
             "role": "assistant",
-            "content": "Let me solve this step by step.\n<think>"
+            "content": "Let me solve this step by step and then give the final guess in between <guess> </guess>.\n<think>"
         }
     ]
 
@@ -137,7 +137,7 @@ past_guesses = [
         ]),
 ]
 
-prompt = render_prompt(past_guesses)
+gitprompt = render_prompt(past_guesses)
 print(prompt)
 print("First Try")
 base_completion = generate_stream(prompt)
