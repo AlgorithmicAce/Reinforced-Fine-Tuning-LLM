@@ -83,7 +83,7 @@ def generate_stream(
 
 def generate(
     messages: List[dict],
-    adapter_id: str = "",
+    adapter_id: str = base_model_id,
     num_guesses: int = 1,
     temperature: float = 0.7,
     max_tokens: int = 1024,
@@ -183,7 +183,7 @@ def extract_guess(completion: str) -> str:
 
 def next_turn(past_guesses: List[GuessWithFeedback], secret_word: str, adapter_id = ""):
     prompt = render_prompt(past_guesses)
-    completion = generate_stream(prompt)
+    completion = generate_stream(prompt, base_model_id)
     guess = extract_guess(completion)
 
     feedback = get_feedback(guess, secret_word)
