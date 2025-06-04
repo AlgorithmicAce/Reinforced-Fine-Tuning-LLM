@@ -24,7 +24,8 @@ How is **Group Relative Policy Optimization (GRPO)** differe from other policy *
 > RLHF & DPO need a huge dataset of human preferences (Which response does the user like more) --> Not efficient
 > GRPO uses reward-based learning (Reward from pre-defined functions or LLM as a judge) and uses the reward  to update the weights to maximise reward
 
-I'm fine-tuning **Gemma 3 1B** using [Unsloth AI](https://docs.unsloth.ai/) since it allows quantised fine-tuning. So, rather than using an industrial-grade GPU with higher VRAM, I can fine-tune on Google Colab with just 16GB VRAM.
+I'm fine-tuning **Qwen 2.5 3B** using [Unsloth AI](https://docs.unsloth.ai/) since it allows quantised fine-tuning. So, rather than using an industrial-grade GPU with higher VRAM, I can fine-tune on Google Colab with just 16GB VRAM.
+I was using **Gemma 3 1B** model previously, but even with different prompts, I couldn't let the model "understand" the task! It keeps hallucinating, and I felt like **Qwen 2.5 3B** is better so I chose to proceed with that model
 
 **Reward Functions For Wordle:**
 1. Output Format Check: Checks if the output matches the exact format
@@ -34,7 +35,7 @@ I'm fine-tuning **Gemma 3 1B** using [Unsloth AI](https://docs.unsloth.ai/) sinc
  **Progress:**
  - [x] Fine-tuned using OpenAI's famous **gsm8k** dataset
  - [x] Created reward functions for **Wordle GRPO** dataset
- - [ ] Fine-tuned **Gemma 3 1B** (Training takes hours and Colab only offers 3-4 hours of Tesla T4 GPU) --> Can try using Kaggle
+ - [ ] Fine-tuned **Qwen 2.5 3B** (Training takes hours and Colab only offers 3-4 hours of Tesla T4 GPU) --> Can try using Kaggle --> I'm using university PC with RDP
  - [ ] Uploaded model to HuggingFace
 
 [complete algorithm]: https://github.com/AlgorithmicAce/Reinforced-Fine-Tuning-LLM/blob/main/images/GRPO.jpeg "Group Relative Policy Optimisation"
